@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Journal</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mood Journal</h1>
+            <p class="subtitle">Записывай настроение, замечай закономерности</p>
+        </header>
+
+        <section class="card" id="entry-form">
+            <h2>Как сегодня дела?</h2>
+            <div class="mood-selector">
+                <button class="mood-btn" data-mood="1" title="Ужасно">😞</button>
+                <button class="mood-btn" data-mood="2" title="Плохо">😔</button>
+                <button class="mood-btn" data-mood="3" title="Нормально">😐</button>
+                <button class="mood-btn" data-mood="4" title="Хорошо">🙂</button>
+                <button class="mood-btn" data-mood="5" title="Отлично">😄</button>
+            </div>
+            <textarea id="note-input" placeholder="Заметка (необязательно)" maxlength="1000"></textarea>
+            <button id="save-btn" class="btn-primary" disabled>Сохранить</button>
+            <div id="form-message" class="message"></div>
+        </section>
+
+        <section class="card" id="stats-section">
+            <h2>Статистика</h2>
+            <div class="stats-controls">
+                <button class="period-btn active" data-days="7">Неделя</button>
+                <button class="period-btn" data-days="30">Месяц</button>
+                <button class="period-btn" data-days="90">3 месяца</button>
+            </div>
+            <div class="stats-summary" id="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value" id="stat-total">—</span>
+                    <span class="stat-label">записей</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="stat-avg">—</span>
+                    <span class="stat-label">среднее</span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="mood-chart"></canvas>
+            </div>
+        </section>
+
+        <section class="card" id="history-section">
+            <h2>Последние записи</h2>
+            <div id="entries-list" class="entries-list">
+                <p class="empty-state">Загрузка...</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

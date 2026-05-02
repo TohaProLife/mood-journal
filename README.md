@@ -82,7 +82,7 @@ mood-journal/
 ## Roadmap
 
 - [x] Идея, описание проекта, репозиторий
-- [ ] Базовая реализация — работающий backend + frontend
+- [x] Базовая реализация — работающий backend + frontend
 - [ ] CI pipeline — линтер и проверки при PR
 - [ ] Docker — упаковать приложение в контейнер
 - [ ] Тесты — unit, API, e2e
@@ -92,17 +92,25 @@ mood-journal/
 
 ## Как запустить
 
-Пока проект в разработке, но когда будет готов:
-
 ```bash
 git clone https://github.com/TohaProLife/mood-journal.git
 cd mood-journal/backend
 
+# Создаём виртуальное окружение (рекомендуется)
+python -m venv venv
+venv\Scripts\activate       # Windows
+# source venv/bin/activate  # Linux/macOS
+
+# Ставим зависимости
 pip install -r requirements.txt
+
+# Запускаем
 uvicorn main:app --reload
 ```
 
-Сервер поднимется на `http://localhost:8000`, документация API — на `http://localhost:8000/docs`.
+После запуска:
+- Приложение: http://localhost:8000
+- Swagger (документация API): http://localhost:8000/docs
 
 Запуск через Docker будет добавлен позже.
 

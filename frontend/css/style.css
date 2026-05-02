@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px 16px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.mood-selector {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.mood-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    background: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mood-btn:hover {
+    border-color: #aaa;
+    transform: scale(1.1);
+}
+
+.mood-btn.selected {
+    border-color: #4a90d9;
+    background: #eef4fb;
+    transform: scale(1.15);
+    box-shadow: 0 2px 8px rgba(74, 144, 217, 0.3);
+}
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #4a90d9;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: #4a90d9;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #3a7bc8;
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.message {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+.message.success { color: #4caf50; }
+.message.error { color: #e53935; }
+
+.stats-controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.period-btn {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.period-btn.active {
+    background: #4a90d9;
+    color: #fff;
+    border-color: #4a90d9;
+}
+
+.stats-summary {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.chart-container {
+    position: relative;
+    height: 200px;
+}
+
+.entries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.entry-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.entry-mood {
+    font-size: 24px;
+}
+
+.entry-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.entry-date {
+    font-size: 12px;
+    color: #888;
+}
+
+.entry-note {
+    font-size: 14px;
+    color: #555;
+    margin-top: 2px;
+    word-wrap: break-word;
+}
+
+.entry-delete {
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 4px;
+}
+
+.entry-delete:hover {
+    color: #e53935;
+}
+
+.empty-state {
+    text-align: center;
+    color: #aaa;
+    padding: 24px;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .container { padding: 12px 10px; }
+    .mood-btn { width: 48px; height: 48px; font-size: 22px; }
+    .card { padding: 16px; }
+}
