@@ -1,11 +1,10 @@
 from datetime import datetime, timedelta
 
-from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
-
 from database import get_db
+from fastapi import APIRouter, Depends, HTTPException, Query
 from models import MoodEntry
 from schemas import EntryCreate, EntryResponse, StatsResponse
+from sqlalchemy.orm import Session
 
 router = APIRouter(prefix="/api/entries", tags=["entries"])
 
@@ -22,7 +21,12 @@ def create_entry(data: EntryCreate, db: Session = Depends(get_db)):
 @router.get("/", response_model=list[EntryResponse])
 def list_entries(days: int = Query(default=30, ge=1, le=365), db: Session = Depends(get_db)):
     since = datetime.utcnow() - timedelta(days=days)
-    entries = db.query(MoodEntry).filter(MoodEntry.created_at >= since).order_by(MoodEntry.created_at.desc()).all()
+    entries = (
+        db.query(MoodEntry)
+        .filter(MoodEntry.created_at >= since)
+        .order_by(MoodEntry.created_at.desc())
+        .all()
+    )
     return entries
 
 

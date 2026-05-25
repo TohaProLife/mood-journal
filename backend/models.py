@@ -1,9 +1,8 @@
 from datetime import datetime
 
-from sqlalchemy import Integer, Text, DateTime
-from sqlalchemy.orm import Mapped, mapped_column
-
 from database import Base
+from sqlalchemy import DateTime, Integer, Text
+from sqlalchemy.orm import Mapped, mapped_column
 
 
 class MoodEntry(Base):

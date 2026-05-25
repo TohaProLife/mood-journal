@@ -1,8 +1,7 @@
+from database import Base, engine
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-
-from database import engine, Base
+from fastapi.staticfiles import StaticFiles
 from routers.entries import router as entries_router
 
 Base.metadata.create_all(bind=engine)
