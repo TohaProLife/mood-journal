@@ -84,7 +84,7 @@ mood-journal/
 - [x] Идея, описание проекта, репозиторий
 - [x] Базовая реализация — работающий backend + frontend
 - [x] CI pipeline — линтер и проверки при PR
-- [ ] Docker — упаковать приложение в контейнер
+- [x] Docker — упаковать приложение в контейнер
 - [ ] Тесты — unit, API, e2e
 - [ ] Статический анализ безопасности
 - [ ] SCA — анализ зависимостей, SBOM
@@ -112,7 +112,21 @@ uvicorn main:app --reload
 - Приложение: http://localhost:8000
 - Swagger (документация API): http://localhost:8000/docs
 
-Запуск через Docker будет добавлен позже.
+### Запуск через Docker
+
+```bash
+git clone https://github.com/TohaProLife/mood-journal.git
+cd mood-journal
+
+docker build -t mood-journal .
+docker run -p 8000:8000 mood-journal
+```
+
+Или через docker-compose:
+
+```bash
+docker-compose up --build
+```
 
 ## Лицензия
 
